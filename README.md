@@ -1,5 +1,7 @@
 # Ecommerce-Shop
+
 MVP (Version 1) Breakdown for a Single Developer:
+
 1. Setup & Initial Installations:
 Version Control with Git:
 Install Git.
