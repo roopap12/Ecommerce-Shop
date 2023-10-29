@@ -3,15 +3,16 @@
 MVP (Version 1) Breakdown for a Single Developer:
 
 1. Setup & Initial Installations:
-Version Control with Git:
-Install Git.
-Create a new repository on GitHub.
-Clone the repository to your local machine.
-Node.js & Package Manager:
-Install Node.js. This also installs npm.
-Initialize a new Node.js project: npm init -y
+   
+.  Version Control with Git:
+.  Install Git.
+.  Create a new repository on GitHub.
+.  Clone the repository to your local machine.
+.  Node.js & Package Manager:
+.  Install Node.js. This also installs npm.
+.  Initialize a new Node.js project: npm init -y
 
-2. Backend Development:
+3. Backend Development:
 Setup Basic Server:
 Install Express.js: npm install express
 Initiate a basic server using Express.js in a file, e.g., server.js.
@@ -28,7 +29,7 @@ Develop endpoints to fetch user order history (orderHistoryRouter.js).
 ProductManagementAPI:
 Create endpoints to add, edit, delete, and fetch products (productRouter.js).
 
-3. Frontend/UI Development:
+4. Frontend/UI Development:
 React Setup:
 Use create-react-app: npx create-react-app your-app-name
 Shared UI Components:
@@ -50,7 +51,7 @@ Design ProductGrid and ProductDetail components.
 ShoppingCartComponent:
 Build the CartList component with options for quantity and checkout.
 
-4. Integration and State Management:
+5. Integration and State Management:
 API Integration:
 Install Axios: npm install axios
 Use Axios in components to fetch/post data.
@@ -62,7 +63,7 @@ Choose between Redux or React Context API.
 If using Redux: npm install redux react-redux
 Set up global state, actions, and reducers.
 
-5. AI Integration for MVP:
+6. AI Integration for MVP:
 Product Recommendations:
 Use TensorFlow.js: npm install @tensorflow/tfjs
 Implement a basic recommendation engine component: ProductRecommendation.
@@ -70,7 +71,7 @@ Chatbot for Customer Support:
 Use platforms like Dialogflow.
 Create a ChatbotComponent for user interaction.
 
-6. Finalize & Deploy:
+7. Finalize & Deploy:
 Testing & Debugging:
 Install postman for backend API testing.
 Test components and their interactions.
