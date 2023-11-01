@@ -1,0 +1,9 @@
+ecommerce Shop
+
+Username PatelR
+Password: Rp1234
+
+
+url: mongodb+srv://PatelR:Rp1234@cluster0.fx0n3bt.mongodb.net/?retryWrites=true&w=majority
+
+C:\Users\PatelR\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\MongoDB

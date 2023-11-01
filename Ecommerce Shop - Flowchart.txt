@@ -1,0 +1,54 @@
+/backend
+|-- /node_modules
+|-- /config
+|   |-- db.js         // Database connection configuration
+|-- /routes
+|   |-- users.js      // User-related routes (registration, login, profile)
+|   |-- products.js   // Product-related routes (add, edit, delete, list)
+|   |-- orders.js     // Order-related routes (create, list, modify)
+|-- /models
+|   |-- User.js       // User data model
+|   |-- Product.js    // Product data model
+|   |-- Order.js      // Order data model
+|-- /middlewares
+|   |-- auth.js       // Middleware for authentication and authorization
+|-- /controllers
+|   |-- userController.js  // Functions to handle user-related routes
+|   |-- productController.js  // Functions to handle product-related routes
+|   |-- orderController.js  // Functions to handle order-related routes
+|-- .env              // Environment variables (like database URL, secret keys)
+|-- .gitignore        // List of files and directories to ignore in Git
+|-- package.json      // Project metadata and dependencies
+|-- server.js         // Main server file to initiate and run the server
+
+
+FlowChart for Ecommerce-Shop
+
+
+/frontend
+|-- /node_modules
+|-- /public
+|   |-- index.html
+|-- /src
+|   |-- /components
+|   |   |-- Navbar.js
+|   |   |-- ProductGrid.js
+|   |   |-- ProductDetail.js
+|   |   |-- LoginForm.js
+|   |   |-- RegisterForm.js
+|   |   |-- UserProfile.js
+|   |   |-- ShoppingCart.js
+|   |   |-- ...
+|   |-- /contexts
+|   |   |-- AuthContext.js   // Context for user authentication
+|   |   |-- ProductContext.js   // Context for fetching and managing products
+|   |-- /routes
+|   |   |-- AppRouter.js   // Defines all the routes for the app
+|   |-- /assets
+|   |   |-- /images
+|   |-- /styles
+|   |   |-- main.css
+|   |-- App.js           // Main App component
+|   |-- index.js         // Entry point for the React app
+|-- .gitignore          // List of files and directories to ignore in Git
+|-- package.json        // Project metadata and dependencies
