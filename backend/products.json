@@ -1,14 +1,12 @@
 [
-    {
-      "name": "Laptop",
-      "price": 1000,
-      "description": "A high-end laptop."
-    },
-    {
-      "name": "Mouse",
-      "price": 20,
-      "description": "A wireless mouse."
-    }  
-     
-   
-  ]
+  {
+    "name": "Laptop",
+    "price": 1000,
+    "description": "A high-end laptop."
+  },
+  {
+    "name": "Mouse",
+    "price": 20,
+    "description": "A wireless mouse."
+  }
+]
