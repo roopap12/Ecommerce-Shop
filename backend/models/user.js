@@ -14,6 +14,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    dateOfBirth: {
+        type: Date,
+        required: false
+    },
+    profilePicture: {
+        type: String, // You can store the file path or URL to the profile picture
+        required: false
+    },
     // Add other fields as necessary
 });
 
