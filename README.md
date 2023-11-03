@@ -1,6 +1,6 @@
 # Ecommerce-Shop
 *
-MVP (Version 1) Breakdown for a Single Developer:*
+MVP (Version 1) Breakdown for a two Developers:*
 *
 1. Setup & Initial Installations:*
 *   
