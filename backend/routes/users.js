@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const User = require('./models/User'); // Adjust the path if needed
+const User = require('./models/User');
 const bcrypt = require('bcrypt');
+const authMiddleware = require('../middlewares/auth');
 
 // User registration route
 router.post('/register', async (req, res) => {
@@ -66,7 +67,7 @@ router.post('/login', async (req, res) => {
 
     if (passwordMatch) {
       // Password is correct; generate a JWT token
-      const token = jwt.sign({ id: user._id }, '5v737fQ6aYcWm3SPEKURVtO5EhiQggetmC4', { expiresIn: '1h' });
+      const token = jwt.sign({ id: user._id }, process.env.MY_APP_SECRET_KEY, { expiresIn: '1h' });
 
       res.status(200).json({ token });
     } else {
@@ -76,6 +77,12 @@ router.post('/login', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Authentication failed', error: error.message });
   }
+});
+
+// Sample authenticated route (e.g., profile page)
+router.get('/profile', authMiddleware.authenticateUser, (req, res) => {
+  // You can access the authenticated user's data using req.user
+  res.json({ user: req.user });
 });
 
 module.exports = router;
