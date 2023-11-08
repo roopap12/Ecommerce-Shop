@@ -33,7 +33,7 @@ const LoginForm = () => {
               <form className="flex flex-col w-full h-full pb-6 text-center bg-white rounded-3xl" onSubmit={handleSubmit}>
                 <h3 className="mb-3 text-4xl font-extrabold text-dark-grey-900">Sign In</h3>
                 <p className="mb-4 text-grey-700">Enter your email and password</p>
-                <div className="flex justify-center items-center w-full mb-6 py-4 text-sm font-medium bg-gray-300 text-gray-900 rounded-2xl transition-colors duration-300 hover:bg-gray-400 focus-within:ring-4 focus-within:ring-gray-300">
+                <div className="flex items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
                   <img className="h-5 mr-2" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png" alt="" />
                   Sign in with Google
                 </div>
@@ -46,7 +46,7 @@ const LoginForm = () => {
                 <input
                   id="email"
                   type="email"
-                  placeholder="email@gmail.com"
+                  placeholder="mail@loopple.com"
                   className="shadow appearance-none border border-black bg-grey-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                   value={email}
                   onChange={handleEmailChange}
