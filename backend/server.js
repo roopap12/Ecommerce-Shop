@@ -1,11 +1,24 @@
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 5000;
+const mongoose = require('mongoose');
+const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/ecommerceShop';
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+const connectDB = async () => {
+    try {
+        await mongoose.connect(db, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB connected successfully.');
+    } catch (error) {
+        console.error('MongoDB connection failed:', error.message);
+        process.exit(1); // Exit the process with failure
+    }
+}
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// console.log('Before connecting to MongoDB'); // Add this line for debugging
+
+// Call the connectDB function
+// connectDB();
+
+// console.log('After connecting to MongoDB'); // Add this line for debugging
+
+module.exports = connectDB;
