@@ -20,7 +20,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 COPY . .
 
 # Expose port 3000 for the app to be accessible
-EXPOSE 3000
+EXPOSE 3001
 
 # Define the command to run the app
 CMD [ "bash", "start.sh" ]
