@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const User = require('./models/User');
+const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const authMiddleware = require('../middlewares/auth');
 
@@ -49,6 +49,9 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    console.log('Login attempt with email:', email);
+    console.log('Login attempt with password:', password);
+
     // Validate input (e.g., check for required fields)
     if (!email || !password) {
       return res.status(400).json({ message: 'Please provide both email and password.' });
@@ -56,21 +59,32 @@ router.post('/login', async (req, res) => {
 
     // Find the user by email
     const user = await User.findOne({ email });
+    console.log('User found in the database:', user);
 
     // Check if the user exists
     if (!user) {
+      console.log('User not found in the database.');
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
     // Verify the password
     const passwordMatch = await bcrypt.compare(password, user.password);
+    console.log('Password match:', passwordMatch);
 
     if (passwordMatch) {
+      console.log(`User ${email} successfully authenticated.`);
       // Password is correct; generate a JWT token
       const token = jwt.sign({ id: user._id }, process.env.MY_APP_SECRET_KEY, { expiresIn: '1h' });
+      console.log('Generated token:', token);
+
+      //decode token before verification
+      const decodedToken = jwt.decode(token);
+      // const decodedToken = jwt.verify(token, process.env.MY_APP_SECRET_KEY);
+      console.log('Decoded Token:', decodedToken);
 
       res.status(200).json({ token });
     } else {
+      console.log(`Authentication failed for user ${email}. Incorrect password.`);
       res.status(401).json({ message: 'Invalid credentials' });
     }
   } catch (error) {

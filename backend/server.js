@@ -14,11 +14,11 @@ const connectDB = async () => {
     }
 }
 
-// console.log('Before connecting to MongoDB'); // Add this line for debugging
+console.log('Before connecting to MongoDB'); // Add this line for debugging
 
-// Call the connectDB function
-// connectDB();
+// // Call the connectDB function
+connectDB();
 
-// console.log('After connecting to MongoDB'); // Add this line for debugging
+console.log('After connecting to MongoDB'); // Add this line for debugging
 
 module.exports = connectDB;

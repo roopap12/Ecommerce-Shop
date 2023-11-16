@@ -4,9 +4,10 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - "3000:3001"
     environment:
-      - MONGODB_URI=mongodb://mongodb:27017/ecommerceShop
+      - MONGODB_URI=mongodb+srv://PatelR:eIbitFRtZnaCm1Fvb3cnTmwNee73YPRWZ0UWN90jZ0a5nD4UIl3vlwPg53CyYCvr@cluster0.fx0n3bt.mongodb.net/?retryWrites=true&w=majority
+      - MY_APP_SECRET_KEY=2e05dbf3913bec2dfdfd6a6a47005147b812819778b61b088b3f76544a698cdd
     depends_on:
       - mongodb
     restart: always
