@@ -8,7 +8,7 @@ const authMiddleware = require('../middlewares/auth');
 // User registration route
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password, dateOfBirth, profilePicture } = req.body;
+    const { name, email, password, dateOfBirth, profilePicture, role } = req.body;
 
     // Validate input (e.g., check for required fields)
     if (!name || !email || !password) {
@@ -32,7 +32,8 @@ router.post('/register', async (req, res) => {
       email,
       password: hashedPassword,
       dateOfBirth, // Save the DOB if provided
-      profilePicture, // Save the profile picture if provided
+      profilePicture,// Save the profile picture if provided
+      role, 
     });
 
     const savedUser = await newUser.save();

@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/Product'); // Import the Product model
+const Product = require('../models/products'); // Import the Product model
 const {
   authenticateUser,
   authorizeUserRoles,
+  authenticateProduct,
 } = require('../middlewares/auth');
 
 // Create a new product
-router.post('/', authenticateUser, authorizeUserRoles(['admin']), async (req, res) => {
+router.post('/create', authenticateUser, authorizeUserRoles(['admin']), async (req, res) => {
   try {
     const { name, description, price, category, imageUrl, quantity, gender } = req.body;
 
@@ -63,7 +64,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update an existing product
-router.put('/:id', authenticateUser, authenticateProduct, async (req, res) => {
+router.put('/update/:id', authenticateUser, authenticateProduct, authorizeUserRoles(['admin']), async (req, res) => {
   try {
     const { name, description, price, category, imageUrl, quantity, gender } = req.body;
 
@@ -98,7 +99,7 @@ router.put('/:id', authenticateUser, authenticateProduct, async (req, res) => {
 });
 
 // Delete a product by its ID
-router.delete('/:id', authenticateUser, authenticateProduct, async (req, res) => {
+router.delete('/:id', authenticateUser, authenticateProduct, authorizeUserRoles(['admin']), async (req, res) => {
   try {
     const deletedProduct = await Product.findByIdAndRemove(req.params.id);
 
