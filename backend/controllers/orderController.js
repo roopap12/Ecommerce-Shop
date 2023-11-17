@@ -1,7 +1,8 @@
-const Order = require('./models/Order');
+const Order = require('../models/order');
 
 // Controller function to create a new order
 exports.createOrder = async (req, res) => {
+  console.log('User:', req.user);
   try {
     const { user, products, totalAmount, shippingAddress } = req.body;
 
