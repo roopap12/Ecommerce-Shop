@@ -7,7 +7,9 @@ import ProductDetail from './components/ProductDetail'; // Corrected component n
 import LoginForm from './components/LoginForm'; // You can remove this line if LoginForm is imported above
 import RegisterForm from './components/RegisterForm'; // You can remove this line if RegisterForm is imported above
 import Navbar from './components/Navbar';
-// import Footer1 from './components/Footer';
+import Footer1 from './components/Footer';
+import UserProfile from './components/UserProfile';
+import CustomerSettings from './components/CustomerSettings';
 
 function App() {
   return (
@@ -15,11 +17,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/products" element={<ProductList />} /> */}
-        <Route path="/products/:id" element={<ProductDetail />} /> {/* Corrected component name */}
-        {/* <Route path="/cart" element={<Cart />} /> */}
-        <Route path="/loginForm" element={<LoginForm />} />
-        <Route path="/registerForm" element={<RegisterForm />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/settings" element={<CustomerSettings />} />
       </Routes>
       {/* <Footer1 /> */}
     </Router>

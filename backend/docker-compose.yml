@@ -17,8 +17,8 @@ services:
     ports:
       - "27017:27017"
 
-  frontend:
-    build:
-      context: your-frontend-image-name:latest  # Assuming the frontend code is in a directory named 'frontend'
-    ports:
-      - "8080:3000"  # Exposing port 8080 for the frontend (adjust as needed)
+# frontend:
+#     build:
+#     context: your-frontend-image-name:latest  # Assuming the frontend code is in a directory named 'frontend'
+#     ports:
+#       - "8080:3000"  # Exposing port 8080 for the frontend (adjust as needed)
