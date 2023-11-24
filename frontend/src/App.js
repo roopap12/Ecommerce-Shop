@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import '../src/components/styles/main.css'
+import '../src/components/styles/main.css';
 import Home from './components/Home';
-import ProductList from './components/ProductList';
-import ProductDetails from './components/ProductDetail';
-import Cart from './components/ShoppingCart';
-import Login from './components/users/Login';
-import Register from './components/users/Register';
+// import ProductList from './components/ProductList';
+import ProductDetail from './components/ProductDetail'; // Corrected component name
+// import Cart from './components/ShoppingCart';
+import LoginForm from './components/LoginForm'; // You can remove this line if LoginForm is imported above
+import RegisterForm from './components/RegisterForm'; // You can remove this line if RegisterForm is imported above
 import Navbar from './components/Navbar';
 import Footer1 from './components/Footer';
 import UserProfile from './components/UserProfile';
@@ -25,9 +25,8 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/settings" element={<CustomerSettings />} />
       </Routes>
-      <Footer1 />
+      {/* <Footer1 /> */}
     </Router>
-    
   );
 }
 
