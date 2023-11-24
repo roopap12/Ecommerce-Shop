@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import api from '../services/api';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
