@@ -8,6 +8,8 @@ import Login from './components/users/Login';
 import Register from './components/users/Register';
 import Navbar from './components/Navbar';
 import Footer1 from './components/Footer';
+import UserProfile from './components/UserProfile';
+import CustomerSettings from './components/CustomerSettings';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/settings" element={<CustomerSettings />} />
       </Routes>
       <Footer1 />
     </Router>
