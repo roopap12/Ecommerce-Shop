@@ -83,13 +83,13 @@ const LoginForm = () => {
                 </div>
                 <button className="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 md:w-96 rounded-2xl hover:bg-blue-600 focus:ring-4 focus:ring-blue-100 bg-blue-500">SIGN IN</button>
 
-                <p className="text-sm leading-relaxed text-grey-900">Not registered yet? <a href="#" className="font-bold text-grey-700">Create an Account</a></p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                 <p className="text-sm leading-relaxed text-grey-900">Not registered yet? <a href="#" className="font-bold text-grey-700">Create an Account</a></p>
+               </form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
   );
 };
 

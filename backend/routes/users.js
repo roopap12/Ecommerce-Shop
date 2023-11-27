@@ -51,9 +51,6 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    console.log('Login attempt with email:', email);
-    console.log('Login attempt with password:', password);
-
     // Validate input (e.g., check for required fields)
     if (!email || !password) {
       return res.status(400).json({ message: 'Please provide both email and password.' });
@@ -70,6 +67,8 @@ router.post('/login', async (req, res) => {
     }
 
     // Verify the password
+    console.log("User's password:", JSON.stringify(user.password, null, 2));
+    console.log("requested password:", JSON.stringify(password, null, 2));
     const passwordMatch = await bcrypt.compare(password, user.password);
     console.log('Password match:', passwordMatch);
 

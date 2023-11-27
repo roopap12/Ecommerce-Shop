@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../index.css';
+// import React, { useState } from 'react';
+// import '../index.css';
 
 const RegisterForm = () => {
   return (
@@ -17,10 +17,10 @@ const RegisterForm = () => {
         <div>
           <h2 className="text-2xl font-bold text-center">Create your profile</h2>
   
-          <div className="mt-6 space-y-4">
-            <div className="flex flex-col items-center">
-              <label htmlFor="dob" className="w-full text-left">Date of Birth</label>
-              <input
+           <div className="mt-6 space-y-4">
+             <div className="flex flex-col items-center">
+               <label htmlFor="dob" className="w-full text-left">Date of Birth</label>
+               <input
                 id="dob"
                 type="date"
                 className="w-full shadow appearance-none border border-black bg-white rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

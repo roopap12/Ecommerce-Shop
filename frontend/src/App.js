@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import '../src/components/styles/main.css';
 import Home from './components/Home';
@@ -7,11 +8,15 @@ import Cart from './components/ShoppingCart';
 import LoginForm from './components/LoginForm';
 import Register from './components/users/Register';
 import Navbar from './components/Navbar';
-import Footer1 from './components/Footer';
-import UserProfile from './components/UserProfile';
-import CustomerSettings from './components/CustomerSettings';
+import ProductGrid from './components/ProductGrid';
+import api from './services/api'; 
+// import ProductDetail from './components/ProductDetail';
+// import LoginForm from './components/LoginForm';
+// import RegisterForm from './components/RegisterForm';
+// import UserProfile from './components/UserProfile';
+// import ShoppingCart from './components/ShoppingCart';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Navbar />
@@ -28,6 +33,6 @@ function App() {
       {/* <Footer1 /> */}
     </Router>
   );
-}
+};
 
 export default App;

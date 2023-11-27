@@ -1,15 +1,14 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3001/api',
+  baseURL: 'http://localhost:3001',
   withCredentials: true,
 });
 
 // Function to get the JWT token
 const getToken = async (credentials) => {
   try {
-    const response = await
-axios.post('http://localhost:3001/auth/login', credentials);
+    const response = await axios.post('http://localhost:3001/user/login', credentials);
     return response.data.token;
   } catch (error) {
     throw error;
@@ -21,8 +20,8 @@ axiosInstance.interceptors.request.use(
   async (config) => {
     try {
       const userCredentials = {
-        username: 'User 2', // Replace with your user credentials
-        password: 'random_password_2', // Replace with your user password
+        email: 'tina.patel@example.com', // Replace with your user credentials
+        password: 'tpatel', // Replace with your user password
       };
 
       const token = await getToken(userCredentials);
@@ -70,9 +69,7 @@ export const getProductById = async (productId) => {
 
 export const updateProduct = async (productId, updatedProductData) => {
   try {
-    const response = await
-axiosInstance.put(`/products/update/${productId}`,
-updatedProductData);
+    const response = await axiosInstance.put(`/products/update/${productId}`, updatedProductData);
     return response.data;
   } catch (error) {
     throw error;

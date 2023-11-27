@@ -9,6 +9,11 @@ const {
 
 // Create a new product
 router.post('/create', authenticateUser, authorizeUserRoles(['admin']), async (req, res) => {
+   // Add CORS headers for this route
+   res.header('Access-Control-Allow-Headers', '*');
+   res.header('Access-Control-Allow-Methods', '*');
+   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+   res.header('Access-Control-Allow-Credentials', true);
   try {
     const { name, description, price, category, imageUrl, quantity, gender } = req.body;
 
@@ -40,6 +45,7 @@ router.post('/create', authenticateUser, authorizeUserRoles(['admin']), async (r
 
 // Get a list of all products
 router.get('/', async (req, res) => {
+  console.log("Fetching all Products....")
   try {
     const products = await Product.find();
     res.status(200).json(products);
