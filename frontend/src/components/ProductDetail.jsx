@@ -163,59 +163,59 @@
 
 // export default ProductDetails;
 
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getProductById } from '../services/api'; // Import getProductById from api.js
-import { addToCart } from '../services/api'; // Import addToCart from services/api.js
+// import React, { useState, useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
+// import { getProductById } from '../services/api'; // Import getProductById from api.js
+// import { addToCart } from '../services/api'; // Import addToCart from services/api.js
 
-const ProductDetail = () => {
-  const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+// const ProductDetail = () => {
+//   const { productId } = useParams();
+//   const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    const fetchProductDetails = async () => {
-      try {
-        const productDetails = await getProductById(productId);
-        setProduct(productDetails);
-      } catch (error) {
-        console.error('Error fetching product details:', error.message);
-      }
-    };
+//   useEffect(() => {
+//     const fetchProductDetails = async () => {
+//       try {
+//         const productDetails = await getProductById(productId);
+//         setProduct(productDetails);
+//       } catch (error) {
+//         console.error('Error fetching product details:', error.message);
+//       }
+//     };
 
-    fetchProductDetails();
-  }, [productId]);
+//     fetchProductDetails();
+//   }, [productId]);
 
-  const handleAddToCart = () => {
-    if (product) {
-      addToCart(product);
-      alert(`${product.name} added to the cart!`);
-    }
-  };
+//   const handleAddToCart = () => {
+//     if (product) {
+//       addToCart(product);
+//       alert(`${product.name} added to the cart!`);
+//     }
+//   };
 
-  return (
-    <div className="container mx-auto mt-8 p-4">
-        {console.log('Rendering ProductDetail component')}
-      {product ? (
-        <div className="flex flex-col items-center">
-          <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
-          <img src={product.imageUrl} alt={product.name} className="mb-4 rounded-lg" />
-          <p className="text-gray-700">{product.description}</p>
-          <p className="text-lg font-bold text-blue-700 mt-2">${product.price}</p>
+//   return (
+//     <div className="container mx-auto mt-8 p-4">
+//         {console.log('Rendering ProductDetail component')}
+//       {product ? (
+//         <div className="flex flex-col items-center">
+//           <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
+//           <img src={product.imageUrl} alt={product.name} className="mb-4 rounded-lg" />
+//           <p className="text-gray-700">{product.description}</p>
+//           <p className="text-lg font-bold text-blue-700 mt-2">${product.price}</p>
 
-          <button
-            onClick={handleAddToCart}
-            className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full hover:bg-blue-700"
-          >
-            Add to Cart
-          </button>
+//           <button
+//             onClick={handleAddToCart}
+//             className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full hover:bg-blue-700"
+//           >
+//             Add to Cart
+//           </button>
 
-          {/* Additional features can be added here */}
-        </div>
-      ) : (
-        <p className="text-lg font-bold">Loading product details...</p>
-      )}
-    </div>
-  );
-};
+//           {/* Additional features can be added here */}
+//         </div>
+//       ) : (
+//         <p className="text-lg font-bold">Loading product details...</p>
+//       )}
+//     </div>
+//   );
+// };
 
-export default ProductDetail;
+// export default ProductDetail;

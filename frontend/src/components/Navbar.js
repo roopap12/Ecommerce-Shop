@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container">
         <div className="relative -mx-4 flex items-center justify-between">
           <div className="w-60 max-w-full px-4 ">
-            <a href="/#" className="block w-full py-5">
+            <Link to="/#" className="block w-full py-5">
               <img
                 src="KiwiMall4.png"
                 alt="logo"
@@ -21,7 +21,7 @@ const Navbar = () => {
                 alt="logo"
                 className="w-full hidden dark:block"
               />
-            </a>
+            </Link>
           </div>
           <div className="flex w-full items-center justify-between px-4">
             <div>
@@ -91,12 +91,12 @@ const ListItem = ({ children, NavLink }) => {
   return (
     <>
       <li>
-        <a
-          href={NavLink}
+        <Link
+          to={NavLink}
           className="flex py-2 text-base font-medium text-dark hover:text-primary dark:text-white lg:ml-10 lg:inline-flex"
         >
           {children}
-        </a>
+        </Link>
       </li>
     </>
   );

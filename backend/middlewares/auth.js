@@ -8,10 +8,16 @@ const secretKey = process.env.MY_APP_SECRET_KEY;
 
 // Middleware to authenticate a user
 function authenticateUser(req, res, next) {
+  // Add CORS headers for this middleware
+  res.header('Access-Control-Allow-Headers', '*');
+  res.header('Access-Control-Allow-Methods', '*');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Allow-Credentials', true);
   // console.log("req",req)
   // console.log("secret key",secretKey)
 
-  const token = req.header('Authorization-Bearer');
+  // const token = req.header('Authorization-Bearer');
+  const token = req.header('Authorization');
   // console.log('Token from header:', token);
 
   if (!token) {
