@@ -1,14 +1,49 @@
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+const axiosInstance = axios.create({
+  baseURL: 'http://localhost:3001/api',
+  withCredentials: true,
 });
 
-export const getProducts = () => api.get('/products');
+// Function to get the JWT token
+const getToken = async (credentials) => {
+  try {
+    const response = await
+axios.post('http://localhost:3001/auth/login', credentials);
+    return response.data.token;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// Add a request interceptor
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    try {
+      const userCredentials = {
+        username: 'User 2', // Replace with your user credentials
+        password: 'random_password_2', // Replace with your user password
+      };
+
+      const token = await getToken(userCredentials);
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export const getProducts = () => axiosInstance.get('/products');
 
 export const createProduct = async (productData) => {
   try {
-    const response = await api.post('/products/create', productData);
+    const response = await axiosInstance.post('/products/create', productData);
     return response.data;
   } catch (error) {
     throw error;
@@ -17,7 +52,7 @@ export const createProduct = async (productData) => {
 
 export const getAllProducts = async () => {
   try {
-    const response = await api.get('/products');
+    const response = await axiosInstance.get('/products');
     return response.data;
   } catch (error) {
     throw error;
@@ -26,7 +61,7 @@ export const getAllProducts = async () => {
 
 export const getProductById = async (productId) => {
   try {
-    const response = await api.get(`/products/${productId}`);
+    const response = await axiosInstance.get(`/products/${productId}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -35,7 +70,8 @@ export const getProductById = async (productId) => {
 
 export const updateProduct = async (productId, updatedProductData) => {
   try {
-    const response = await api.put(`/products/update/${productId}`,
+    const response = await
+axiosInstance.put(`/products/update/${productId}`,
 updatedProductData);
     return response.data;
   } catch (error) {
@@ -45,19 +81,19 @@ updatedProductData);
 
 export const deleteProduct = async (productId) => {
   try {
-    await api.delete(`/products/${productId}`);
+    await axiosInstance.delete(`/products/${productId}`);
   } catch (error) {
     throw error;
   }
 };
 
 export const addToCart = async (product) => {
-    try {
-      // Implemented addToCart logic here
-      console.log(`Adding ${product.name} to the cart...`);
-    } catch (error) {
-      throw error;
-    }
-  };
+  try {
+    // Implemented addToCart logic here
+    console.log(`Adding ${product.name} to the cart...`);
+  } catch (error) {
+    throw error;
+  }
+};
 
-export default api;
+export default axiosInstance;

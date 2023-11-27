@@ -1,58 +1,59 @@
 // import React, { useState } from "react";
 // import Navbar from "./Navbar";
 
-// const Header = () => {
-//   return (
-//     <>
-//       <Navbar />
-//       <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]">
-//         <div className="container">
-//           <div className="-mx-4 flex flex-wrap">
-//             <div className="w-full px-4 lg:w-5/12">
-//               <div className="hero-content">
-//                 <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-dark dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl">
-//                   Unique Value Proposition
-//                 </h1>
-//                 <p className="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6">
-//                   Concisely tell the prospect your main benefit. Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom 
-//                 </p>
-//                 <ul className="flex flex-wrap items-center">
-//                   <li>
-//                     <a
-//                       href="/#"
-//                       className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-center text-base font-medium text-white hover:bg-blue-dark lg:px-7"
-//                     >
-//                       Get Started
-//                     </a>
-//                   </li>
-//                   <li>
-//                     <a
-//                       href="/#"
-//                       className="inline-flex items-center justify-center px-5 py-3 text-center text-base font-medium text-[#464646] hover:text-primary dark:text-white"
-//                     >
-//                       <svg
-//                         xmlns="http://www.w3.org/2000/svg"
-//                         fill="none"
-//                         viewBox="0 0 24 24"
-//                         strokeWidth={1.5}
-//                         stroke="currentColor"
-//                         className="w-6 h-6"
-//                       >
-//                         <path
-//                           strokeLinecap="round"
-//                           strokeLinejoin="round"
-//                           d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-//                         />
-//                       </svg>
-//                       View Products
-//                     </a>
-//                   </li>
-//                 </ul>
-//                 <div className="clients pt-16">
-//                   <h6 className="mb-6 flex items-center text-xs font-normal text-body-color dark:text-dark-6">
-//                     Fast shipping, great reviews, and high quality
-//                     <span className="ml-3 inline-block h-px w-8 bg-body-color"></span>
-//                   </h6>
+const Header = () => {
+  return (
+    <>
+      <Navbar />
+      <div className="relative bg-white pb-[110px] pt-[150px] dark:bg-dark lg:pt-[180px]">
+        <div className="container">
+          <div className="-mx-4 flex flex-wrap">
+            <div className="w-full px-4 lg:w-5/12">
+              <div className="hero-content">
+                <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-dark dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl">
+                  Shop Smart, Live Better - Welcome to Kiwi Mall
+                </h1>
+                <p className="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6">
+                  Kiwi Mall unites the worlds of fashion, technology, and culinary essentials, offering a one-stop destination for top-quality, diverse, and trendy products. Experience the convenience of finding everything you need with just a few clicks, all while enjoying competitive prices and exceptional customer service 
+                </p>
+                <ul className="flex flex-wrap items-center">
+                  <li>
+                    <a
+                      href="/#"
+                      className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-center text-base font-medium text-white hover:bg-blue-dark lg:px-7"
+                    >
+                      Get Started
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                      className="inline-flex items-center justify-center px-5 py-3 text-center text-base font-medium text-[#464646] hover:text-primary dark:text-white"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                        />
+                      </svg>
+                      View Products
+                    </a>
+                  </li>
+                </ul>
+                <div className="clients pt-16">
+                  <h6 className="mb-6 flex items-center text-xs font-normal text-body-color dark:text-dark-6">
+                    Fast shipping, great reviews, and high quality
+                    <span className="ml-3 inline-block h-px w-8 bg-body-color"></span>
+                  </h6>
+
 
 //                   <div className="flex items-center space-x-4">
 //                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-20 h-20">

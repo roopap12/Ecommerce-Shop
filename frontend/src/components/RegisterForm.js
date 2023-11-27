@@ -3,7 +3,7 @@ import '../index.css';
 
 const RegisterForm = () => {
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-white pt-32">
     <div className="p-6">
       {/* header */}
       <header className="flex justify-between">
@@ -12,7 +12,7 @@ const RegisterForm = () => {
         </div>
       </header>
   
-      <section className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-md space-y-8">
+      <section className="max-w-md mx-auto space-y-8 my-10 md:my-20">
         {/* register content */}
         <div>
           <h2 className="text-2xl font-bold text-center">Create your profile</h2>
