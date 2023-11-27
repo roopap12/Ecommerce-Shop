@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import '../src/components/styles/main.css'
+import '../src/components/styles/main.css';
 import Home from './components/Home';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetail';
@@ -25,9 +25,8 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/settings" element={<CustomerSettings />} />
       </Routes>
-      <Footer1 />
+      {/* <Footer1 /> */}
     </Router>
-    
   );
 }
 

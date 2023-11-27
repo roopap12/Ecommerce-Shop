@@ -8,6 +8,7 @@ const authMiddleware = require('../middlewares/auth');
 // User registration route
 router.post('/register', async (req, res) => {
   try {
+
     const { name, email, password, dateOfBirth, profilePicture, role } = req.body;
 
     // Validate input (e.g., check for required fields)
@@ -93,6 +94,52 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Authentication failed', error: error.message });
   }
 });
+
+// Update an existing user
+router.put('/update/:userId', authMiddleware.authenticateUser, authMiddleware.authorizeUserRoles(['admin']), async (req, res) => {
+  try {
+    const { name, email, password, dateOfBirth, profilePicture, role } = req.body;
+
+    // Find the user to update
+    const userIdToUpdate = req.params.userId;
+    const userToUpdate = await User.findById(userIdToUpdate);
+
+    // Check if the user to update exists
+    if (!userToUpdate) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Check if the authenticated user is an admin
+    const isAdmin = req.user.role === 'admin';
+
+    // Admins can update any user, regular users can only update their own information
+    if (!isAdmin && req.user.id !== userIdToUpdate) {
+      return res.status(403).json({ message: 'Unauthorized to update this user' });
+    }
+
+    // Update user information
+    userToUpdate.name = name || userToUpdate.name;
+    userToUpdate.email = email || userToUpdate.email;
+    userToUpdate.dateOfBirth = dateOfBirth || userToUpdate.dateOfBirth;
+    userToUpdate.profilePicture = profilePicture || userToUpdate.profilePicture;
+    userToUpdate.role = role || userToUpdate.role;
+
+    // If a new password is provided, hash and update it
+    if (password) {
+      const saltRounds = 10;
+      userToUpdate.password = await bcrypt.hash(password, saltRounds);
+    }
+
+    // Save the updated user
+    await userToUpdate.save();
+
+    res.status(200).json({ message: 'User updated successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'User update failed', error: error.message });
+  }
+});
+
 
 // Sample authenticated route (e.g., profile page)
 router.get('/profile', authMiddleware.authenticateUser, (req, res) => {
