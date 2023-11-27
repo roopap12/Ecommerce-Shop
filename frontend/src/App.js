@@ -4,7 +4,7 @@ import Home from './components/Home';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetail';
 import Cart from './components/ShoppingCart';
-import Login from './components/users/Login';
+import LoginForm from './components/LoginForm';
 import Register from './components/users/Register';
 import Navbar from './components/Navbar';
 import Footer1 from './components/Footer';
@@ -20,7 +20,7 @@ function App() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/settings" element={<CustomerSettings />} />

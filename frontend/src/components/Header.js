@@ -5,16 +5,16 @@ const Header = () => {
   return (
     <>
       <Navbar />
-      <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]">
+      <div className="relative bg-white pb-[110px] pt-[150px] dark:bg-dark lg:pt-[180px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-5/12">
               <div className="hero-content">
                 <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-dark dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl">
-                  Unique Value Proposition
+                  Shop Smart, Live Better - Welcome to Kiwi Mall
                 </h1>
                 <p className="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6">
-                  Concisely tell the prospect your main benefit. Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom Lorum epsom 
+                  Kiwi Mall unites the worlds of fashion, technology, and culinary essentials, offering a one-stop destination for top-quality, diverse, and trendy products. Experience the convenience of finding everything you need with just a few clicks, all while enjoying competitive prices and exceptional customer service 
                 </p>
                 <ul className="flex flex-wrap items-center">
                   <li>
