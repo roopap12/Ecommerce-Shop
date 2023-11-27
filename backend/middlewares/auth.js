@@ -51,7 +51,8 @@ function authorizeUserRoles(roles) {
         next();
       })
       .catch(error => {
-        return res.status(500).json({ message: 'Authorization failed', error: error.message });
+        return res.status(500).json({ message: 'Authorization failed',
+error: error.message });
       });
   };
 }
@@ -90,7 +91,8 @@ async function authenticateProduct(req, res, next) {
     next();
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Authentication failed', error: error.message });
+    res.status(500).json({ message: 'Authentication failed', error:
+error.message });
   }
 }
 

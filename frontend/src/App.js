@@ -1,5 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import '../src/components/styles/main.css';
+import Home from './components/Home';
+import ProductList from './components/ProductList';
+import ProductDetails from './components/ProductDetail';
+import Cart from './components/ShoppingCart';
+import LoginForm from './components/LoginForm';
+import Register from './components/users/Register';
 import Navbar from './components/Navbar';
 import ProductGrid from './components/ProductGrid';
 import api from './services/api'; 
@@ -12,17 +19,18 @@ import api from './services/api';
 const App = () => {
   return (
     <Router>
-      <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<ProductGrid api={api} />} />
-          {/* <Route path="/product/:id" element={<ProductDetail />} /> */}
-          {/* <Route path="/login" element={<LoginForm />} /> */}
-          {/* <Route path="/register" element={<RegisterForm />} /> */}
-          {/* <Route path="/profile" element={<UserProfile />} /> */}
-          {/* <Route path="/cart" element={<ShoppingCart />} /> */}
-        </Routes>
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/settings" element={<CustomerSettings />} />
+      </Routes>
+      {/* <Footer1 /> */}
     </Router>
   );
 };
