@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import '../index.css'; // Ensure you have imported the CSS file correctly
+import axios from 'axios';
+import '../index.css'; 
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [keepLoggedIn, setKeepLoggedIn] = useState(true);
+  const [message, setMessage] = useState(''); 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -19,9 +23,35 @@ const LoginForm = () => {
     setKeepLoggedIn(!keepLoggedIn);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle the form submission logic here
+
+    try {
+      const response = await axios.post('http://localhost:3001/user/login', {
+        email,
+        password,
+      });
+
+      console.log(response.data); // You can handle the response as needed
+
+      // If keepLoggedIn is true, save the user data in localStorage
+      if (keepLoggedIn) {
+        localStorage.setItem('user', JSON.stringify(response.data));
+      }
+      // Set the success message
+      setMessage('Successfully logged in!');
+
+      // Clear the form fields
+      setEmail('');
+      setPassword('');
+
+      // Navigate to home page after 2 seconds
+      setTimeout(() => navigate('/'), 2000);
+      
+    } catch (error) {
+      console.error('Login failed:', error.message);
+      // Handle login failure (e.g., show an error message to the user)
+    }
   };
 
   return (
