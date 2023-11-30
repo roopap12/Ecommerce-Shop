@@ -23,6 +23,7 @@ const ProductGrid = ({ api }) => {
   }, []);
 
   useEffect(() => {
+    console.log('Effect triggered with category:', selectedCategory);
     const fetchData = async () => {
       try {
         // Modify the request URL to include the category parameter

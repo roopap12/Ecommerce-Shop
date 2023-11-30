@@ -1,7 +1,43 @@
 import React, { useState } from "react";
 import "../index.css";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    dob: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:3001/user/register', formData);
+      console.log(response.data); // You can handle the response as needed
+      // Reset form fields after successful submission
+      setFormData({
+        name: "",
+        dob: "",
+        email: "",
+        password: "",
+      });
+       // Navigate to success page
+      navigate('/success');
+    } catch (error) {
+      console.error("Registration failed:", error.message);
+      // Handle registration failure (e.g., show an error message to the user)
+    }
+  };
+
+  // const RegisterForm = () => {
   return (
     <main className="relative min-h-screen bg-white pt-32">
       <div className="p-6">
@@ -13,23 +49,11 @@ const RegisterForm = () => {
         <section className="max-w-md mx-auto space-y-8 my-10 md:my-20">
           {/* register content */}
           <div>
-            <h2 className="text-2xl font-bold text-center">
+            {/* <h2 className="text-2xl font-bold text-center">
               Create your profile
-            </h2>
+            </h2> */}
 
-            <div className="mt-6 space-y-4">
-              <div className="flex flex-col items-center">
-                <label htmlFor="dob" className="w-full text-left">
-                  Date of Birth
-                </label>
-                <input
-                  id="dob"
-                  type="date"
-                  className="w-full shadow appearance-none border border-black bg-white rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  max={new Date().toISOString().split("T")[0]}
-                />
-              </div>
-
+            <form onSubmit={handleSubmit}>
               <div className="flex flex-col items-center">
                 <label htmlFor="name" className="w-full text-left">
                   Name (optional)
@@ -39,7 +63,23 @@ const RegisterForm = () => {
                   type="text"
                   placeholder="Your Name"
                   className="w-full shadow appearance-none border border-black bg-white rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  onChange={handleChange}
                 />
+              </div>
+
+              <div className="mt-3 space-y-4">
+                <div className="flex flex-col items-center">
+                  <label htmlFor="dob" className="w-full text-left">
+                    Date of Birth
+                  </label>
+                  <input
+                    id="dob"
+                    type="date"
+                    className="w-full shadow appearance-none border border-black bg-white rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    max={new Date().toISOString().split("T")[0]}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
 
               <div className="flex flex-col items-center">
@@ -51,6 +91,7 @@ const RegisterForm = () => {
                   type="text"
                   placeholder="Your Email"
                   className="w-full shadow appearance-none border border-black bg-white rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  onChange={handleChange}
                 />
               </div>
 
@@ -63,13 +104,18 @@ const RegisterForm = () => {
                   type="password"
                   placeholder="Password"
                   className="w-full shadow appearance-none border border-black bg-white rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  onChange={handleChange}
                 />
               </div>
-
-              <button className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-2xl bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-100">
-                CREATE ACCOUNT
-              </button>
-            </div>
+              <div>
+                <button
+                  type="submit"
+                  className="w-full px-4 py-3 mt-4 font-bold text-white transition duration-300 rounded-2xl bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-100"
+                >
+                  CREATE ACCOUNT
+                </button>
+              </div>
+            </form>
           </div>
 
           <div className="flex items-center justify-center space-x-4">

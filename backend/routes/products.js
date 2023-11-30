@@ -43,7 +43,7 @@ router.post('/create', authenticateUser, authorizeUserRoles(['admin']), async (r
   }
 });
 
-// Get a list of all products
+// Updated getProducts route with category filtering
 router.get('/', async (req, res) => {
   console.log("Fetching all Products....")
   console.log("Query: ", req.query.category);
