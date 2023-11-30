@@ -6,6 +6,7 @@ import Home from './components/Home';
 // import ProductDetails from './components/ProductDetail';
 import Cart from './components/ShoppingCart';
 import LoginForm from './components/LoginForm';
+// import Register from './components/users/Register';
 import Navbar from './components/Navbar';
 import ProductGrid from './components/ProductGrid';
 // import api from './services/api'; 
@@ -13,7 +14,7 @@ import ProductGrid from './components/ProductGrid';
 import RegisterForm from './components/RegisterForm';
 import SuccessPage from './SuccessPage';
 import UserProfile from './components/UserProfile';
-// import CustomerSettings from './components/CustomerSettings';
+import CustomerSettings from './components/CustomerSettings';
 
 const App = () => {
   return (
@@ -21,9 +22,9 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product" element={<ProductGrid />} />
-        {/* <Route path="/products" element={<ProductList />} /> */}
-        {/* <Route path="/products/:id" element={<ProductDetails />} /> */}
+        <Route path="/productsgrid" element={<ProductGrid />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />

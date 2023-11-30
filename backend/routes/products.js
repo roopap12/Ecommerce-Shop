@@ -45,23 +45,49 @@ router.post('/create', authenticateUser, authorizeUserRoles(['admin']), async (r
 
 // Updated getProducts route with category filtering
 router.get('/', async (req, res) => {
-  try {
-    const { category } = req.query;
-    console.log('Received category:', category);
-    let products;
+  console.log("Fetching all Products....")
+  console.log("Query: ", req.query.category);
 
-    if (category) {
-      // If category is provided, filter products by category
-      products = await Product.find({ category });
+  try {
+    let products = [];
+
+    // Check if a category parameter is provided
+    if (req.query.category) {
+      // Use the category parameter to filter products
+      products = await Product.find({ category: req.query.category });
+      console.log("product categories: ", products);
     } else {
-      // If no category is provided, get all products
+      // If no category parameter, get all products
       products = await Product.find();
+      console.log("all products: ", products);
     }
 
     res.status(200).json(products);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error retrieving products', error: error.message });
+  }
+});
+
+//get all products in a particular category
+router.get('/category/:category', async (req, res) => {
+  try {
+    const products = await Product.find({ category: req.params.category });
+    res.status(200).json(products);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error retrieving products', error: error.message });
+  }
+})
+
+router.get('/uniquecategories', async (req, res) => {
+  console.log("Fetching unique categories....")
+  try {
+    const categories = await Product.distinct('category');
+    res.json(categories);
+  } catch (error) {
+    console.error('Error fetching unique categories:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
@@ -127,6 +153,26 @@ router.delete('/:id', authenticateUser, authenticateProduct, authorizeUserRoles(
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error deleting product', error: error.message });
+  }
+});
+
+router.get('/products', async (req, res) => {
+  try {
+    let products;
+
+    // Check if a category parameter is provided
+    if (req.query.category) {
+      // Use the category parameter to filter products
+      products = await Product.find({ category: req.query.category });
+    } else {
+      // If no category parameter, get all products
+      products = await Product.find();
+    }
+
+    res.json(products);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

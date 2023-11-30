@@ -49,9 +49,24 @@ export const createProduct = async (productData) => {
   }
 };
 
-export const getAllProducts = async () => {
+export const getAllProducts = async (category) => {
   try {
-    const response = await axiosInstance.get('/products');
+    let url = '/products';
+    if (category) {
+      url += `?category=${category}`;
+    }
+    console.log("url: ", url)
+    const response = await axiosInstance.get(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getProductCategories = async () => {
+  try {
+    const response = await axiosInstance.get('/products/uniquecategories');
+    console.log(response.data)
     return response.data;
   } catch (error) {
     throw error;

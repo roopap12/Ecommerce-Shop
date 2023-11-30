@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -25,6 +26,7 @@ const Header = () => {
                       Get Started
                     </a>
                   </li>
+                    <Link to="/productsgrid">
                   <li>
                     <a
                       href="/#"
@@ -47,8 +49,9 @@ const Header = () => {
                       View Products
                     </a>
                   </li>
+                  </Link>
                 </ul>
-                <div className="clients pt-16">
+                {/* <div className="clients pt-16">
                   <h6 className="mb-6 flex items-center text-xs font-normal text-body-color dark:text-dark-6">
                     Fast shipping, great reviews, and high quality
                     <span className="ml-3 inline-block h-px w-8 bg-body-color"></span>
@@ -66,19 +69,19 @@ const Header = () => {
  </svg>
 
 
- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-20 h-20">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-20 h-20">
    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
  </svg>
 
                    </div>
-                 </div>
+                 </div> */}
                </div>
              </div>
              <div className="hidden px-4 lg:block lg:w-1/12"></div>
              <div className="w-full px-4 lg:w-6/12">
                <div className="lg:ml-auto lg:text-right">
                  <div className="relative z-10 inline-block pt-11 lg:pt-0">
-                   <img
+              <img
                     src="https://cdn.tailgrids.com/1.0/assets/images/hero/hero-image-01.png"
                     alt="hero"
                     className="max-w-full lg:ml-auto"
