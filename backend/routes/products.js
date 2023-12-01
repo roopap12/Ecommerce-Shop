@@ -44,9 +44,33 @@ router.post('/create', authenticateUser, authorizeUserRoles(['admin']), async (r
 });
 
 
-// Get a list of all products
 router.get('/', async (req, res) => {
   console.log("Fetching all Products....")
+  console.log("Query: ", req.query.category);
+
+  try {
+    let products = [];
+
+    // Check if a category parameter is provided
+    if (req.query.category) {
+      // Use the category parameter to filter products
+      products = await Product.find({ category: req.query.category });
+      console.log("product categories: ", products);
+    } else {
+      // If no category parameter, get all products
+      products = await Product.find();
+      console.log("all products: ", products);
+    }
+
+    res.status(200).json(products);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error retrieving products', error: error.message });
+  }
+});
+
+//get all products in a particular category
+router.get('/category/:category', async (req, res) => {
   try {
     const productsWithCategories = await Product.aggregate([
       {
@@ -59,9 +83,22 @@ router.get('/', async (req, res) => {
 
 
     res.status(200).json(productsWithCategories);
+
+   
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error retrieving products', error: error.message });
+  }
+})
+
+router.get('/uniquecategories', async (req, res) => {
+  console.log("Fetching unique categories....")
+  try {
+    const categories = await Product.distinct('category');
+    res.json(categories);
+  } catch (error) {
+    console.error('Error fetching unique categories:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
@@ -142,7 +179,25 @@ router.delete('/:id', authenticateUser, authenticateProduct, authorizeUserRoles(
   }
 });
 
+router.get('/products', async (req, res) => {
+  try {
+    let products;
 
+    // Check if a category parameter is provided
+    if (req.query.category) {
+      // Use the category parameter to filter products
+      products = await Product.find({ category: req.query.category });
+    } else {
+      // If no category parameter, get all products
+      products = await Product.find();
+    }
+
+    res.json(products);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 
 module.exports = router;

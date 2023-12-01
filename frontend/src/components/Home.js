@@ -5,8 +5,6 @@ import { getAllProducts } from "../services/api";
 import FeaturedProduct from "./FeaturedProducts";
 // import Footer1 from "./Footer";
 
-
-
 const BestSeller1 = () => {
     return (
         <div className="2xl:container 2xl:mx-auto">
@@ -133,6 +131,19 @@ const BestSeller1 = () => {
         </div>
     );
 };
+
+import ProductCategoryGrid from "./ProductGrid";
+import { Link } from "react-router-dom";
+// import Footer1 from "./Footer";
+import FeaturedProduct from "./FeaturedProduct";
+import { BestSeller } from "./BestSeller";
+
+
+// Placeholder component for Featured Product
+
+
+
+
 
 
 // Placeholder component for Hero Section
@@ -579,7 +590,9 @@ const Home = () => {
       <FeaturedProduct />
       <ProductCategoryGrid/>
       <BestSeller1 />
-
+      <FeaturedProduct/>
+      {/* <ProductCategoryGrid/> */}
+      <BestSeller />
       <Faq8 />
       <ProductReview1 />
       <Newsletter />

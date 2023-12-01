@@ -3,6 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts, getProductById } from '../services/api';
 
+
+
+
+
 const dummyProducts = [
   { id: 1, name: 'Product 1', price: 19.99, category: 'Category A' },
   { id: 2, name: 'Product 2', price: 29.99, category: 'Category B' },
@@ -13,8 +17,6 @@ const dummyProducts = [
   { id: 7, name: 'Product 7', price: 79.99, category: 'Category A' },
   { id: 8, name: 'Product 8', price: 89.99, category: 'Category B' },
 ];
-
-
 
 const ProductList = ({ api }) => {
   const [products, setProducts] = useState([]);
@@ -104,6 +106,9 @@ const ProductList = ({ api }) => {
       <header>
       <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
         Collection
+
+
+
       </h2>
 
       <p class="mt-4 max-w-md text-gray-500">
@@ -112,8 +117,6 @@ const ProductList = ({ api }) => {
         natus?
       </p>
     </header>
-      
-
     <div class="mt-8 block lg:hidden">
       <button 
         class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
@@ -190,6 +193,7 @@ const ProductList = ({ api }) => {
 
                   <button
                     onClick={() => setPriceFilters()}
+
                     type="button"
                     class="text-sm text-gray-900 underline underline-offset-4"
                   >
@@ -200,6 +204,7 @@ const ProductList = ({ api }) => {
                 <ul class="space-y-1 border-t border-gray-200 p-4">
                   <li>
                     <label
+
                       htmlFor="FilterInStock"
                       class="inline-flex items-center gap-2"
                     >
@@ -218,6 +223,7 @@ const ProductList = ({ api }) => {
                   <li>
                     <label
                       htmlFor="FilterPreOrder"
+
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -307,7 +313,6 @@ const ProductList = ({ api }) => {
                         class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
                       />
                     </label>
-
                     <label htmlFor="FilterPriceTo" class="flex items-center gap-2">
                       <span class="text-sm text-gray-600">$</span>
 
@@ -364,6 +369,7 @@ const ProductList = ({ api }) => {
                 <ul class="space-y-1 border-t border-gray-200 p-4">
                   <li>
                     <label
+
                       htmlFor="FilterRed"
                       class="inline-flex items-center gap-2"
                     >
@@ -415,6 +421,7 @@ const ProductList = ({ api }) => {
 
                   <li>
                     <label
+
                       htmlFor="FilterOrange"
                       class="inline-flex items-center gap-2"
                     >
@@ -448,7 +455,6 @@ const ProductList = ({ api }) => {
                   </li>
 
                   <li>
-                    <label
                       htmlFor="FilterTeal"
                       class="inline-flex items-center gap-2"
                     >

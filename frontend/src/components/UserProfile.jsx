@@ -15,8 +15,9 @@ export default function UserProfile() {
       {/* menu close button */}
       <div className="bg-white xl:hidden flex text-gray-800  hover:text-black focus:outline-none focus:text-black justify-between w-full p-6 items-center ">
         <button className="flex justify-between  items-center space-x-3">
-          <img src="KiwiMall4.png" alt="logo" className="w-32 md:w-48 lg:w-64 h-auto" /> 
-            <p className="text-2xl leading-6 ">Kiwi Mall</p> 
+
+          {/* <img src="KiwiMall4.png" alt="logo" className="w-32 md:w-48 lg:w-64 h-auto" /> */}
+          {/* <p className="text-2xl leading-6 ">Kiwi Mall</p> */}
         </button>
         <div aria-label="toggler" className="flex justify-center items-center">
           <button
@@ -113,14 +114,15 @@ export default function UserProfile() {
                 fill="currentColor"
               />
             </svg>
-            <p className="text-2xl leading-6 ">OvonRueden</p> 
+            {/* <p className="text-2xl leading-6 ">OvonRueden</p> */}
           </button>
           <div className="xl:mt-6 flex flex-col justify-start items-start  px-4 w-full space-y-3 pb-5 ">
             <div className=" relative focus:outline-none flex jusitfy-start w-full   text-gray-800 rounded  items-center border-gray-300 focus:border-gray-400 border  ">
               <input
                 type="text"
                 placeholder="Search"
-                className="placeholder-gray-800 text-base placeholder-text-base leading-4 py-3  w-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 rounded "
+
+                className="placeholder-gray-800 text-base placeholder-text-base leading-4 py-3 pl-8 w-full pl-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 rounded "
               />
               <svg
                 className="absolute left-4"
@@ -211,7 +213,7 @@ export default function UserProfile() {
               </svg>
               <p className="text-base leading-4 ">Payment</p>
             </button>
-             <button className="focus:outline-none flex justify-start items-center space-x-6 hover:text-white focus:bg-indigo-700 focus:text-white hover:bg-indigo-700 text-gray-600 rounded  py-3 pl-4  w-full ">
+            {/* <button className="focus:outline-none flex justify-start items-center space-x-6 hover:text-white focus:bg-indigo-700 focus:text-white hover:bg-indigo-700 text-gray-600 rounded  py-3 pl-4  w-full ">
                 <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 19C10.2091 19 12 17.2091 12 15C12 12.7909 10.2091 11 8 11C5.79086 11 4 12.7909 4 15C4 17.2091 5.79086 19 8 19Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M10.85 12.15L19 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -219,7 +221,7 @@ export default function UserProfile() {
                 <path d="M15 8L17 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 <p className="text-base leading-4  ">Security</p>
-            </button> 
+            </button> */}
             <button className="flex justify-start items-center space-x-6 hover:text-white focus:outline-none focus:bg-indigo-700 focus:text-white hover:bg-indigo-700 text-gray-600 rounded py-3 pl-4  w-full ">
               <svg
                 width={24}
@@ -277,7 +279,7 @@ export default function UserProfile() {
                   </svg>
                   <p className="text-base leading-4  ml-6">Chat</p>
                 </div>
-                <div className="ml-28 p-1 bg-indigo-700 rounded-full"></div> 
+                {/* <div className="ml-28 p-1 bg-indigo-700 rounded-full"></div> */}
               </div>
             </button>
             <div className="w-full">
