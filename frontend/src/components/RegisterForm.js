@@ -1,5 +1,5 @@
-// import React, { useState } from 'react';
-// import '../index.css';
+import React, { useState } from 'react';
+import '../index.css';
 
 const RegisterForm = () => {
   return (

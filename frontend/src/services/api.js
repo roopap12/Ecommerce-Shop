@@ -67,6 +67,7 @@ export const getProductById = async (productId) => {
   }
 };
 
+
 export const updateProduct = async (productId, updatedProductData) => {
   try {
     const response = await axiosInstance.put(`/products/update/${productId}`, updatedProductData);
@@ -83,6 +84,15 @@ export const deleteProduct = async (productId) => {
     throw error;
   }
 };
+
+export const getUniqueCategories = async () => {
+    try {
+      const response = await axiosInstance.get('products/uniquecategories');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
 
 export const addToCart = async (product) => {
   try {

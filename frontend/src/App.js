@@ -6,15 +6,13 @@ import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetail';
 import Cart from './components/ShoppingCart';
 import LoginForm from './components/LoginForm';
-import Register from './components/users/Register';
 import Navbar from './components/Navbar';
 import ProductGrid from './components/ProductGrid';
-import api from './services/api'; 
-// import ProductDetail from './components/ProductDetail';
-// import LoginForm from './components/LoginForm';
-// import RegisterForm from './components/RegisterForm';
-// import UserProfile from './components/UserProfile';
-// import ShoppingCart from './components/ShoppingCart';
+import RegisterForm from './components/RegisterForm';
+import UserProfile from './components/UserProfile';
+import ShoppingCart from './components/ShoppingCart';
+import CustomerSettings from './components/CustomerSettings';
+import Footer1 from './components/Footer';
 
 const App = () => {
   return (
@@ -26,11 +24,11 @@ const App = () => {
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<RegisterForm />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/settings" element={<CustomerSettings />} />
       </Routes>
-      {/* <Footer1 /> */}
+      <Footer1 />
     </Router>
   );
 };
