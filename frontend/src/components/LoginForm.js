@@ -25,7 +25,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg py-5 mt-[20vh]">
+    <div className="bg-white rounded-lg py-5 mt-[13vh]">
       <div className="container flex flex-col mx-auto bg-white rounded-lg pt-12 my-5">
         <div className="flex justify-center w-full h-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
           <div className="flex items-center justify-center w-full lg:p-12">
@@ -81,7 +81,7 @@ const LoginForm = () => {
                   </label>
                   <a href="#" className="mr-4 text-sm font-medium text-purple-blue-500">Forget password?</a>
                 </div>
-                <button className="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 md:w-96 rounded-2xl hover:bg-blue-600 focus:ring-4 focus:ring-blue-100 bg-blue-500">SIGN IN</button>
+                <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 ">SIGN IN</button>
 
                  <p className="text-sm leading-relaxed text-grey-900">Not registered yet? <a href="#" className="font-bold text-grey-700">Create an Account</a></p>
                </form>

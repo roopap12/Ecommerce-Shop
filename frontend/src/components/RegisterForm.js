@@ -58,7 +58,7 @@ const RegisterForm = () => {
               />
             </div>
   
-            <button className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-2xl bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-100">
+            <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">
               CREATE ACCOUNT
             </button>
           </div>
