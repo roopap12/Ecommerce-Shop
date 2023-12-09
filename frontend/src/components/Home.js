@@ -381,9 +381,9 @@ const Home = () => {
       <FeaturedProduct />
       <ProductCategoryGrid/>
       <BestSeller1 />
-      <FeaturedProduct/>
+      
       {/* <ProductCategoryGrid/> */}
-      <BestSeller />
+      {/* <BestSeller /> */}
       <Faq8 />
       <ProductReview1 />
       <Newsletter />

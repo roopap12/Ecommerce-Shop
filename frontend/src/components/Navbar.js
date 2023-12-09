@@ -53,7 +53,7 @@ const Navbar = () => {
               </nav>
               
             </div>
-            <div className="w-30 max-w-full px-4">
+            <div className="w-30 max-w-full px-4 sm:justify">
   <a href="/" className="block w-full ">
     <img
       src="/KiwiMall4.png"
@@ -113,7 +113,7 @@ const Navbar = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6"
+                    className="w-6 h-6 sm: align-middle"
                   >
                     <path
                       strokeLinecap="round"
