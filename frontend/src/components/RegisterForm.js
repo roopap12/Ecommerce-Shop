@@ -111,7 +111,7 @@ const RegisterForm = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full px-4 py-3 mt-4 font-bold text-white transition duration-300 rounded-2xl bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-100"
+                  className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-4 lg:mt-12 mt-6"
                 >
                   CREATE ACCOUNT
                 </button>
@@ -128,13 +128,13 @@ const RegisterForm = () => {
           <div className="grid grid-cols-2 gap-4">
             <a
               href="#"
-              className="block px-4 py-2.5 font-bold text-center text-blue-700 transition duration-300 bg-white border-b-2 border-gray-300 rounded-2xl ring-2 ring-gray-300 hover:bg-gray-200 active:translate-y-[0.125rem] active:border-b-gray-200"
+              className="block px-4 py-2.5 font-bold text-center text-black-700 transition duration-300 bg-white border-b-2 border-gray-300 rounded-2xl ring-2 ring-gray-300 hover:bg-gray-200 active:translate-y-[0.125rem] active:border-b-gray-200"
             >
               FACEBOOK
             </a>
             <a
               href="#"
-              className="block px-4 py-2.5 font-bold text-center text-blue-500 transition duration-300 bg-white border-b-2 border-gray-300 rounded-2xl ring-2 ring-gray-300 hover:bg-gray-200 active:translate-y-[0.125rem] active:border-b-gray-200"
+              className="block px-4 py-2.5 font-bold text-center text-black-500 transition duration-300 bg-white border-b-2 border-gray-300 rounded-2xl ring-2 ring-gray-300 hover:bg-gray-200 active:translate-y-[0.125rem] active:border-b-gray-200"
             >
               GOOGLE
             </a>

@@ -3,6 +3,8 @@ import Header from "./Header";
 import ProductCategoryGrid from "./ProductCategoryGrid"
 import { getAllProducts } from "../services/api";
 import FeaturedProduct from "./FeaturedProducts";
+import { BestSeller } from "./BestSeller";
+
 import { ProductReview1 } from "./ProductReview";
 // import Footer1 from "./Footer";
 
@@ -133,11 +135,11 @@ const BestSeller1 = () => {
     );
 };
 
-import ProductCategoryGrid from "./ProductGrid";
-import { Link } from "react-router-dom";
+
+
 // import Footer1 from "./Footer";
-import FeaturedProduct from "./FeaturedProduct";
-import { BestSeller } from "./BestSeller";
+
+
 
 
 // Placeholder component for Featured Product

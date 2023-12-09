@@ -21,19 +21,11 @@ const Navbar = () => {
 
 
   return (
-    <header className="absolute left-0 top-0 z-20 flex w-full items-center">
+    <header className="absolute left-0 top-3 z-20 flex w-full items-center">
       <div className="container">
         <div className="relative -mx-4 flex items-center justify-between">
-          <div className="w-60 max-w-full px-4">
-            <a href="/#" className="block w-full py-5">
-              <img
-                src="KiwiMall4.png"
-                alt="logo"
-                className="w-32 md:w-48 lg:w-64 h-auto"
-              />
-            </a>
-          </div>
-          <div className="flex w-full items-center justify-between px-4">
+        
+          <div className="flex w-full items-center justify-between px-10">
             <div>
               <button
                 onClick={() => setOpen(!open)}
@@ -52,14 +44,24 @@ const Navbar = () => {
                   !open && "hidden"
                 }`}
               >
-                <ul className="block lg:flex">
-                  <ListItem NavLink="/#">Home</ListItem>
-                  <ListItem NavLink="/#">Payment</ListItem>
-                  <ListItem NavLink="/#">About</ListItem>
-                  <ListItem NavLink="/#">Blog</ListItem>
+                <ul className="flex justify-start mx-40">
+                  <ListItem NavLink="/products">Shop</ListItem>
+                  <ListItem NavLink="/#">Learn</ListItem>
+                  {/* <ListItem NavLink="/#">About</ListItem>
+                  <ListItem NavLink="/#">Blog</ListItem> */}
                 </ul>
               </nav>
+              
             </div>
+            <div className="w-30 max-w-full px-4">
+  <a href="/" className="block w-full ">
+    <img
+      src="/KiwiMall4.png"
+      alt="logo"
+      className="w-28 md:w-48 lg:w-32 h-auto"
+    />
+  </a>
+</div>
             <div className="hidden justify-end items-center pr-16 sm:flex lg:pr-0">
               <Link to="/register">
                 <a
@@ -99,7 +101,6 @@ const Navbar = () => {
               >
                 Sign Up
               </a>
-            </div>
             <div className="flex items-center">
               {/* Add the shopping bag icon */}
               <span
@@ -122,6 +123,7 @@ const Navbar = () => {
                   </svg>
                   </span>
                   </div>
+            </div>
                   <Cart
         onClose={() => setIsCartOpen(false)}
         isOpen={isCartOpen}
