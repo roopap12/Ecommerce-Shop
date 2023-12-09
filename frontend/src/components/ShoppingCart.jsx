@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Cart = ({ isOpen, onClose, cartItems, setCartItems, onRemoveItem}) => {
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
