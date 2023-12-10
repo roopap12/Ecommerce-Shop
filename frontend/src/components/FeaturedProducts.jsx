@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { getProductById } from "../services/api";
-import { useNavigate } from "react-router-dom"; // Add this line
+import { Link, useNavigate } from "react-router-dom"; // Add this line
+import { Route, Routes } from "react-router";
+import ProductDetail from "./ProductDetail";
 
-const FeaturedProduct = ({ api }) => {
+
+const FeaturedProduct = ({api}) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();  // Initialize useNavigate
+  const navigate = useNavigate();
+  
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,9 +30,11 @@ const FeaturedProduct = ({ api }) => {
   }, [api]);
 
   const handleProductClick = (productId) => {
-    navigate(`/products/${productId}`);  // Use navigate instead of history.push
+    // Redirect to the product details page
+    navigate(`/products/${productId}`);
   };
 
+ 
   return (
     <section>
       <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
@@ -55,21 +61,23 @@ const FeaturedProduct = ({ api }) => {
             {/* The issue was here: missing parent element for the map function */}
             <ul className="grid grid-cols-2 gap-4">
               {products.map((product) => (
-                <li key={product.id}>
+                 <li key={product.id} onClick={(e) => {
+                  handleProductClick(product._id)
+                 }
+                 }>
                   {/* Your product item JSX goes here */}
-                  <a href="#" className="block group" onClick={() => handleProductClick(product.id)}>
-                    <img
-                      src={product.imageUrl}
-                      alt=""
-                      className="object-cover w-full rounded aspect-square"
-                    />
-                    <div className="mt-3">
-                      <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                        {product.name}
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-700">$150</p>
-                    </div>
-                  </a>
+                  
+                  <img
+                    src={product.imageUrl}
+                    alt=""
+                    className="object-cover w-full rounded aspect-square"
+                  />
+                  <div className="mt-3">
+                    <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
+                   {product.name}
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-700">$150</p>
+                  </div>
                 </li>
               ))}
             </ul>
