@@ -15,6 +15,7 @@ export default function UserProfile() {
       {/* menu close button */}
       <div className="bg-white xl:hidden flex text-gray-800  hover:text-black focus:outline-none focus:text-black justify-between w-full p-6 items-center ">
         <button className="flex justify-between  items-center space-x-3">
+
           {/* <img src="KiwiMall4.png" alt="logo" className="w-32 md:w-48 lg:w-64 h-auto" /> */}
           {/* <p className="text-2xl leading-6 ">Kiwi Mall</p> */}
         </button>
@@ -120,6 +121,7 @@ export default function UserProfile() {
               <input
                 type="text"
                 placeholder="Search"
+
                 className="placeholder-gray-800 text-base placeholder-text-base leading-4 py-3 pl-8 w-full pl-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 rounded "
               />
               <svg

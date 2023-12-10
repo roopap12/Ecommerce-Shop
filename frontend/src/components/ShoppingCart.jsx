@@ -1,13 +1,6 @@
 // Cart.js
 import React from 'react';
-
-const Cart = ({ isOpen, onClose }) => {
-  // Dummy cart data (replace with actual cart data)
-  const cartItems = [
-    { id: 1, name: 'Product 1', price: 19.99, quantity: 2 },
-    { id: 2, name: 'Product 2', price: 29.99, quantity: 1 },
-  ];
-
+const Cart = ({ isOpen, onClose, cartItems }) => {
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
