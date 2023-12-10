@@ -13,6 +13,7 @@ import UserProfile from './components/UserProfile';
 import ShoppingCart from './components/ShoppingCart';
 import CustomerSettings from './components/CustomerSettings';
 import Footer1 from './components/Footer';
+import SuccessPage from './SuccessPage';
 
 const App = () => {
   return (
