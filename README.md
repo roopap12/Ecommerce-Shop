@@ -1,4 +1,4 @@
-# Ecommerce-Shop
+<!-- # Ecommerce-Shop
 *
 ### MVP (Version 1) Breakdown for a two Developers:*
 
@@ -89,4 +89,68 @@
 ### git push to upload changes to GitHub
 
 ### This gives a structured sequence for development   while ensuring you cover all components and functionalities planned for your MVP. 
-### Remember to test individual components as you create them to minimize bugs in the final integration.
+### Remember to test individual components as you create them to minimize bugs in the final integration. -->
+
+# Ecommerce Shop - KiwiMall
+
+Discover and shop top-quality fashion, tech, and culinary essentials easily at competitive prices.
+
+<p align="center">  
+    <img alt="Screenshot" src=".\frontend\public\Screenshot 2023-12-05 1.png" width="500">
+    <br>
+    <img alt="Screenshot" src=".\frontend\public\Screenshot 2023-12-05 2.png" width="500">
+</p>
+
+## Built With
+
+- HTML, CSS, JavaScript & React;
+- Visual Studio, Git & GitHub;
+
+### Running locally
+To run this project, you only need a computer with a browser (like Google Chrome, Mozilla Firefox, Microsoft Edge, Apple Safari, etc.) installed, and follow these steps:
+
+1. In your terminal, type the following, to clone this repository:
+
+```sh
+$ git clone https://github.com/roopap12/Ecommerce-Shop.git
+```
+
+2. After, run the following commands in your terminal:
+
+```sh
+$ cd Ecommerce-Shop
+$ npm install
+$ cd frontend
+$ npm start and in seperate terminal
+$ cd backend
+$ npm start
+
+```
+<details align="right">
+<summary><small>What are these commands?</summary>
+- the `$ cd` command is used to move to different folders.</small>
+</details>
+
+3. After 'npm start' on the front and back end the application will render in the browser.
+
+## Authors
+
+👤 Cameron White
+
+- GitHub: [CamDubz](https://github.com/CamDubz)
+- LinkedIn: [@Cameron-White](https://nz.linkedin.com/in/cameron-white-99b1511bb)
+
+
+👤 Andrew Spence
+
+- GitHub: [AndrewRobertSpence](https://github.com/AndrewRobertSpence)
+
+👤 Roopa Patel
+
+- GitHub: [roopap12](https://github.com/roopap12)
+- LinkedIn: [@Roopa-Patel](https://nz.linkedin.com/in/xxxxxxxx)
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+

@@ -12,15 +12,10 @@ const Header = () => {
             <div className="w-full px-4 lg:w-5/12">
               <div className="hero-content">
                 <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-dark dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl">
-                  Shop Smart, Live Better - Welcome to Kiwi Mall
+                  Shop Smart, Live Better
                 </h1>
                 <p className="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6">
-                  Kiwi Mall unites the worlds of fashion, technology, and
-                  culinary essentials, offering a one-stop destination for
-                  top-quality, diverse, and trendy products. Experience the
-                  convenience of finding everything you need with just a few
-                  clicks, all while enjoying competitive prices and exceptional
-                  customer service
+                Discover and shop top-quality fashion, tech, and culinary essentials easily at competitive prices.
                 </p>
                 <ul className="flex flex-wrap items-center">
                   <li>
