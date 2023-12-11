@@ -34,7 +34,7 @@ const ProductCategoryGrid = ({ api }) => {
               {categories.map((category, index) => (
                 <React.Fragment key={category}>
                   <div className="relative group flex justify-center items-center h-full w-full">
-                    <img className="object-center object-cover h-full w-full" src={`https://i.ibb.co/ThPFmzv/omid-armin-m-VSb6-PFk-VXw-unsplash-1-1.png`} alt="girl-image" />
+                    <img  className="object-center object-cover h-40 md:h-48 lg:h-60 w-full md:max-w-xs lg:max-w-sm xl:max-w-md" src={`https://i.ibb.co/ThPFmzv/omid-armin-m-VSb6-PFk-VXw-unsplash-1-1.png`} alt="girl-image" />
                     <button
                       className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white ${selectedCategory === category ? 'bg-gray-400' : ''}`}
                       onClick={() => setSelectedCategory(category)}

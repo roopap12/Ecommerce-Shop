@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAllProducts } from "../services/api";
 import { getProductCategories } from "../services/api";
+import { useParams } from 'react-router-dom';
 
 const ProductGrid = ({ api }) => {
   const [products, setProducts] = useState([]);
@@ -8,6 +9,7 @@ const ProductGrid = ({ api }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categories, setCategories] = useState([]);
   console.log("categories: ", categories);
+  const { category } = useParams();
 
 
   useEffect(() => {

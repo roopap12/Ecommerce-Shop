@@ -8,7 +8,7 @@ const Header = () => {
       
       <div className="relative bg-white pb-[110px] pt-[150px] dark:bg-dark lg:pt-[180px]">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap">
+          <div className="flex flex-wrap">
             <div className="w-full px-4 lg:w-5/12">
               <div className="hero-content">
                 <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-dark dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl">
