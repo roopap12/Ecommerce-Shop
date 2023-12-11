@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-const Index = () => {
+const CustomerSettings = () => {
     let form = useRef(null);
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -187,7 +187,9 @@ const Index = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="container mx-auto mt-10 rounded bg-gray-100 dark:bg-gray-700 w-11/12 xl:w-full">
+                <div className="container mx-auto mt-10 rounded bg-gray-100 dark:bg-gray-700 w-11/12 xl:w-full">
+
+          
                     <div className="xl:w-full py-5 px-8">
                         <div className="flex items-center mx-auto">
                             <div className="container mx-auto">
@@ -282,7 +284,8 @@ const Index = () => {
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div> 
+
                 <div className="container mx-auto w-11/12 xl:w-full">
                     <div className="w-full py-4 sm:px-0 bg-white dark:bg-gray-800 flex justify-end">
                         <button className="bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-indigo-600 dark:text-indigo-600 px-6 py-2 text-xs mr-4">Cancel</button>
@@ -295,4 +298,7 @@ const Index = () => {
         </form>
     );
 };
-export default Index;
+
+export default CustomerSettings;
+
+

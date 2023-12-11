@@ -43,7 +43,7 @@ router.post('/create', authenticateUser, authorizeUserRoles(['admin']), async (r
   }
 });
 
-// Updated getProducts route with category filtering
+
 router.get('/', async (req, res) => {
   console.log("Fetching all Products....")
   console.log("Query: ", req.query.category);
@@ -72,13 +72,36 @@ router.get('/', async (req, res) => {
 //get all products in a particular category
 router.get('/category/:category', async (req, res) => {
   try {
-    const products = await Product.find({ category: req.params.category });
-    res.status(200).json(products);
+    const productsWithCategories = await Product.aggregate([
+      {
+        $group: {
+          _id: '$category',
+          products: { $push: '$$ROOT' },
+        },
+      },
+    ]);
+
+
+    res.status(200).json(productsWithCategories);
+
+   
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error retrieving products', error: error.message });
   }
 })
+
+router.get('/uniquecategories', async (req, res) => {
+  console.log("Fetching unique categories....")
+  try {
+    const categories = await Product.distinct('category');
+    res.json(categories);
+  } catch (error) {
+    console.error('Error fetching unique categories:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 router.get('/uniquecategories', async (req, res) => {
   console.log("Fetching unique categories....")
@@ -175,5 +198,6 @@ router.get('/products', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 module.exports = router;

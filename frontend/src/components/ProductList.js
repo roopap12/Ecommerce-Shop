@@ -1,6 +1,11 @@
 // Products.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getAllProducts, getProductById } from '../services/api';
+
+
+
+
 
 const dummyProducts = [
   { id: 1, name: 'Product 1', price: 19.99, category: 'Category A' },
@@ -13,13 +18,97 @@ const dummyProducts = [
   { id: 8, name: 'Product 8', price: 89.99, category: 'Category B' },
 ];
 
-const ProductList = () => {
+const ProductList = ({ api }) => {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [sortBy, setSortBy] = useState(''); // State for sorting
+  const [availabilityFilters, setAvailabilityFilters] = useState({
+    inStock: false,
+    preOrder: false,
+    outOfStock: false,
+  });
+  const [priceFilters, setPriceFilters] = useState({
+    from: '',
+    to: '',
+  });
+  const [colorFilters, setColorFilters] = useState({
+    red: false,
+    blue: false,
+    green: false,
+    orange: false,
+    purple: false,
+    teal: false,
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // const response = await api.get('/products');
+        const response = await getAllProducts();
+        setProducts(response);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        setError(error);
+      }
+    };
+
+    fetchData();
+  }, [api]);
+
+  // Apply filters to products
+  const filteredProducts = products
+    .filter((product) => {
+      // Apply availability filters
+      if (availabilityFilters.inStock && product.stock <= 0) return false;
+      if (availabilityFilters.preOrder && product.stock <= 3) return false;
+      if (availabilityFilters.outOfStock && product.stock >= 10) return false;
+
+      // Apply price filters
+      const productPrice = product.price;
+      const from = parseFloat(priceFilters.from);
+      const to = parseFloat(priceFilters.to);
+      if (
+        (from && productPrice < from) ||
+        (to && productPrice > to) ||
+        (!isNaN(from) && isNaN(to) && productPrice < from) ||
+        (isNaN(from) && !isNaN(to) && productPrice > to)
+      ) {
+        return false;
+      }
+
+      // Apply color filters
+      if (
+        colorFilters.red && !product.colors.includes('Red') ||
+        colorFilters.blue && !product.colors.includes('Blue') ||
+        colorFilters.green && !product.colors.includes('Green') ||
+        colorFilters.orange && !product.colors.includes('Orange') ||
+        colorFilters.purple && !product.colors.includes('Purple') ||
+        colorFilters.teal && !product.colors.includes('Teal')
+      ) {
+        return false;
+      }
+
+      return true;
+    })
+    .sort((a, b) => {
+      // Apply sorting
+      if (sortBy === 'Title, DESC') return b.title.localeCompare(a.title);
+      if (sortBy === 'Title, ASC') return a.title.localeCompare(b.title);
+      if (sortBy === 'Price, DESC') return b.price - a.price;
+      if (sortBy === 'Price, ASC') return a.price - b.price;
+      return 0;
+    });
   return (
-<section className="mt-64">
+<section className="mt-32">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-    <header>
+    
+
+      <header>
       <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
-        Product Collection
+        Collection
+
+
+
       </h2>
 
       <p class="mt-4 max-w-md text-gray-500">
@@ -28,7 +117,6 @@ const ProductList = () => {
         natus?
       </p>
     </header>
-
     <div class="mt-8 block lg:hidden">
       <button 
         class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
@@ -55,7 +143,7 @@ const ProductList = () => {
     <div class="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-8">
       <div class="hidden space-y-4 lg:block">
         <div>
-          <label for="SortBy" class="block text-xs font-medium text-gray-700">
+          <label htmlFor="SortBy" class="block text-xs font-medium text-gray-700">
             Sort By
           </label>
 
@@ -104,6 +192,8 @@ const ProductList = () => {
                   <span class="text-sm text-gray-700"> 0 Selected </span>
 
                   <button
+                    onClick={() => setPriceFilters()}
+
                     type="button"
                     class="text-sm text-gray-900 underline underline-offset-4"
                   >
@@ -114,7 +204,8 @@ const ProductList = () => {
                 <ul class="space-y-1 border-t border-gray-200 p-4">
                   <li>
                     <label
-                      for="FilterInStock"
+
+                      htmlFor="FilterInStock"
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -131,7 +222,8 @@ const ProductList = () => {
 
                   <li>
                     <label
-                      for="FilterPreOrder"
+                      htmlFor="FilterPreOrder"
+
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -148,7 +240,7 @@ const ProductList = () => {
 
                   <li>
                     <label
-                      for="FilterOutOfStock"
+                      htmlFor="FilterOutOfStock"
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -209,7 +301,7 @@ const ProductList = () => {
                 <div class="border-t border-gray-200 p-4">
                   <div class="flex justify-between gap-4">
                     <label
-                      for="FilterPriceFrom"
+                      htmlFor="FilterPriceFrom"
                       class="flex items-center gap-2"
                     >
                       <span class="text-sm text-gray-600">$</span>
@@ -221,8 +313,7 @@ const ProductList = () => {
                         class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
                       />
                     </label>
-
-                    <label for="FilterPriceTo" class="flex items-center gap-2">
+                    <label htmlFor="FilterPriceTo" class="flex items-center gap-2">
                       <span class="text-sm text-gray-600">$</span>
 
                       <input
@@ -278,7 +369,8 @@ const ProductList = () => {
                 <ul class="space-y-1 border-t border-gray-200 p-4">
                   <li>
                     <label
-                      for="FilterRed"
+
+                      htmlFor="FilterRed"
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -295,7 +387,7 @@ const ProductList = () => {
 
                   <li>
                     <label
-                      for="FilterBlue"
+                      htmlFor="FilterBlue"
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -312,7 +404,7 @@ const ProductList = () => {
 
                   <li>
                     <label
-                      for="FilterGreen"
+                      htmlFor="FilterGreen"
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -329,7 +421,8 @@ const ProductList = () => {
 
                   <li>
                     <label
-                      for="FilterOrange"
+
+                      htmlFor="FilterOrange"
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -346,7 +439,7 @@ const ProductList = () => {
 
                   <li>
                     <label
-                      for="FilterPurple"
+                      htmlFor="FilterPurple"
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -363,7 +456,7 @@ const ProductList = () => {
 
                   <li>
                     <label
-                      for="FilterTeal"
+                      htmlFor="FilterTeal"
                       class="inline-flex items-center gap-2"
                     >
                       <input
@@ -404,7 +497,7 @@ const ProductList = () => {
                 <p class="mt-2">
                   <span class="sr-only"> Regular Price </span>
 
-                  <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                  <span class="tracking-wider text-gray-900"> $30.00</span>
                 </p>
               </div>
             </a>
@@ -428,7 +521,7 @@ const ProductList = () => {
                 <p class="mt-2">
                   <span class="sr-only"> Regular Price </span>
 
-                  <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                  <span class="tracking-wider text-gray-900"> $30.00 </span>
                 </p>
               </div>
             </a>
@@ -452,7 +545,7 @@ const ProductList = () => {
                 <p class="mt-2">
                   <span class="sr-only"> Regular Price </span>
 
-                  <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                  <span class="tracking-wider text-gray-900"> $30.00 </span>
                 </p>
               </div>
             </a>
