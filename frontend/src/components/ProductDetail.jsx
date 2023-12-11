@@ -47,6 +47,7 @@ const ProductDetail = () => {
         updatedCartItems = [...cartItems.slice(0, itemIndex), ...cartItems.slice(itemIndex + 1)];
       }
 
+
       // Update the cartItems state with the new array
       setCartItems(updatedCartItems);
     }
@@ -82,6 +83,7 @@ const ProductDetail = () => {
 
   return (
     <div className="2xl:container 2xl:mx-auto lg:py-25 lg:px-25 md:py-12 md:px-6 py-9 px-4 mt-[170px] ">
+
               <div className="w-full sm:w-96 md:w-8/12 lg:w-12/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4 ">
             
             <div className="w-full lg:w-8/12 bg-gray-100 flex justify-center items-center " >
@@ -223,6 +225,7 @@ const ProductDetail = () => {
                 </span>
               </div>
             </div>
+
             <hr className=" bg-gray-200 w-full my-2" />
             <div className=" flex flex-row justify-between items-center mt-4">
               <p className="font-medium text-base leading-4 text-gray-600">
@@ -271,6 +274,28 @@ const ProductDetail = () => {
 
         {/* <!-- Preview Images Div For larger Screen--> */}
 
+
+        <div className="w-full sm:w-96 md:w-8/12 lg:w-12/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4 ">
+            
+  <div className="w-full lg:w-8/12 bg-gray-100 flex justify-center items-center " >
+    <img
+      src={productById.imageUrl}
+      alt="Wooden Chair Preview"
+      className="w-full lg:h-96 object-cover lg:object-fill"
+    />
+  </div>
+  <div className="w-full lg:w-1/6 grid lg:grid-cols-1 sm:grid-cols-2 grid-cols-1 gap-6">
+    <div className="bg-gray-100 flex justify-center items-center py-4">
+      <img src={productById.imageUrl} alt="Wooden chair - preview 1" className="h-24 object-cover w-full" />
+    </div>
+    <div className="bg-gray-100 flex justify-center items-center py-4">
+      <img src={productById.imageUrl} alt="Wooden chair - preview 2" className="h-24 object-cover w-full" />
+    </div>
+    <div className="bg-gray-100 flex justify-center items-center py-4">
+      <img src={productById.imageUrl} alt="Wooden chair - preview 3" className="h-24 object-cover w-full" />
+    </div>
+  </div>
+</div>
 
 
       </div>

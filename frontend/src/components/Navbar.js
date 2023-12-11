@@ -42,6 +42,12 @@ const Navbar = () => {
   const [cartItems, setCartItems] = useState([]); 
   const navigate = useNavigate();
 
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]); 
+
+
   const handleCloseCart = () => {
     // Close the cart drawer
     setIsCartOpen(false);
@@ -52,6 +58,7 @@ const Navbar = () => {
     const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
     setCartItems(updatedCartItems);
   };
+
 
   const handleToggleCategory = () => {
     setIsCategoryOpen(!isCategoryOpen);
@@ -223,6 +230,7 @@ const Navbar = () => {
                     strokeWidth={1.5}
                     stroke="currentColor"
                     className="w-6 h-6 ml-4"
+
                   >
                     <path
                       strokeLinecap="round"
