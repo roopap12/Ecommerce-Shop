@@ -13,6 +13,8 @@ import ShoppingCart from "./components/ShoppingCart";
 import CustomerSettings from "./components/CustomerSettings";
 import Footer1 from "./components/Footer";
 import ProductDetail from "./components/ProductDetail";
+import SuccessPage from './SuccessPage';
+
 
 const App = () => {
   return (

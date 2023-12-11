@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAllProducts } from "../services/api";
 import { getProductCategories } from "../services/api";
+import { useParams } from 'react-router-dom';
 
 const ProductGrid = ({ api }) => {
   const [products, setProducts] = useState([]);
@@ -8,6 +9,7 @@ const ProductGrid = ({ api }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categories, setCategories] = useState([]);
   console.log("categories: ", categories);
+  const { category } = useParams();
 
 
   useEffect(() => {
@@ -59,20 +61,6 @@ const ProductGrid = ({ api }) => {
   return (
     <div className="mt-64">
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
-      {products.map((product) => (
-        <div key={product._id} className="bg-white rounded-lg shadow p-4">
-          <img
-            src={product.imageUrl}
-            alt={product.name}
-            className="w-full h-48 object-cover mb-4"
-          />
-          <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-          <p className="text-gray-600">{product.description}</p>
-          <p className="text-primary mt-2">${product.price}</p>
-        </div>
-      ))}
-
       <div>
         {/* Category selection dropdown */}
         <label htmlFor="categorySelect" className="mr-2">
@@ -92,7 +80,21 @@ const ProductGrid = ({ api }) => {
     ))}
 </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+      {products.map((product) => (
+        <div key={product._id} className="bg-white rounded-lg shadow p-4">
+          <img
+            src={product.imageUrl}
+            alt={product.name}
+            className="w-full h-48 object-cover mb-4"
+          />
+          <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
+          <p className="text-gray-600">{product.description}</p>
+          <p className="text-primary mt-2">${product.price}</p>
+        </div>
+      ))}
+
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
         {products.map((product) => (
           <div key={product._id} className="bg-white rounded-lg shadow p-4">
             <img
@@ -105,7 +107,7 @@ const ProductGrid = ({ api }) => {
             <p className="text-primary mt-2">${product.price}</p>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
     </div>
   );

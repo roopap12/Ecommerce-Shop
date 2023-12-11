@@ -455,6 +455,7 @@ const ProductList = ({ api }) => {
                   </li>
 
                   <li>
+                    <label
                       htmlFor="FilterTeal"
                       class="inline-flex items-center gap-2"
                     >
@@ -496,7 +497,7 @@ const ProductList = ({ api }) => {
                 <p class="mt-2">
                   <span class="sr-only"> Regular Price </span>
 
-                  <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                  <span class="tracking-wider text-gray-900"> $30.00</span>
                 </p>
               </div>
             </a>
@@ -520,7 +521,7 @@ const ProductList = ({ api }) => {
                 <p class="mt-2">
                   <span class="sr-only"> Regular Price </span>
 
-                  <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                  <span class="tracking-wider text-gray-900"> $30.00 </span>
                 </p>
               </div>
             </a>
@@ -544,7 +545,7 @@ const ProductList = ({ api }) => {
                 <p class="mt-2">
                   <span class="sr-only"> Regular Price </span>
 
-                  <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                  <span class="tracking-wider text-gray-900"> $30.00 </span>
                 </p>
               </div>
             </a>
