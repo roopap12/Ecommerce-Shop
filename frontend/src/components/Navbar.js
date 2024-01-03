@@ -5,26 +5,89 @@ import { useNavigate } from 'react-router-dom';
 import { getProductCategories } from "../services/api";
 
 
+// const Navbar = () => {
+//   const [open, setOpen] = useState(false);
+//   const [isMobile, setIsMobile] = useState(false);
+//   const [isCategoryOpen, setIsCategoryOpen] = useState(false); // State for category dropdown
+//   const [categories, setCategories] = useState([]); // Define categories state
+
+//   useEffect(() => {
+//     // Check screen width on mount and on resize
+//     const handleResize = () => {
+//       setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
+//     };
+
+//     handleResize(); // Initial check
+//     window.addEventListener("resize", handleResize);
+
+//     return () => {
+//       window.removeEventListener("resize", handleResize);
+//     };
+//   }, []);
+
+//   useEffect(() => {
+//     const fetchCategories = async () => {
+//       try {
+//         const response = await getProductCategories();
+//         setCategories(response);
+//       } catch (error) {
+//         console.error("Error fetching categories:", error);
+//         // Handle the error as needed
+//       }
+//     };
+//     fetchCategories();
+//   }, []);
+
+//   const [isCartOpen, setIsCartOpen] = useState(false);
+//   const [cartItems, setCartItems] = useState([]); 
+//   const navigate = useNavigate();
+
+// const Navbar = () => {
+//   const [open, setOpen] = useState(false);
+//   const [isCartOpen, setIsCartOpen] = useState(false);
+//   const [cartItems, setCartItems] = useState([]); 
+
+
+//   const handleCloseCart = () => {
+//     // Close the cart drawer
+//     setIsCartOpen(false);
+//   };
+
+//   const handleRemoveItem = (itemId) => {
+//     // Implement logic to remove the item with itemId from cartItems
+//     const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
+//     setCartItems(updatedCartItems);
+//   };
+
+
+//   const handleToggleCategory = () => {
+//     setIsCategoryOpen(!isCategoryOpen);
+//   };
+
+//   const handleCategoryChange = (category) => {
+//     // Redirect to the ProductGrid route with the selected category
+//     navigate(`/productgrid/${category}`);
+//   };
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false); // State for category dropdown
   const [categories, setCategories] = useState([]); // Define categories state
-
+ 
   useEffect(() => {
     // Check screen width on mount and on resize
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
     };
-
+ 
     handleResize(); // Initial check
     window.addEventListener("resize", handleResize);
-
+ 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
+ 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -37,37 +100,32 @@ const Navbar = () => {
     };
     fetchCategories();
   }, []);
-
+ 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]); 
   const navigate = useNavigate();
-
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]); 
-
-
+ 
   const handleCloseCart = () => {
     // Close the cart drawer
     setIsCartOpen(false);
   };
-
+ 
   const handleRemoveItem = (itemId) => {
     // Implement logic to remove the item with itemId from cartItems
     const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
     setCartItems(updatedCartItems);
   };
-
-
+ 
   const handleToggleCategory = () => {
     setIsCategoryOpen(!isCategoryOpen);
   };
-
+ 
   const handleCategoryChange = (category) => {
     // Redirect to the ProductGrid route with the selected category
     navigate(`/productgrid/${category}`);
   };
+
+
 
   return (
     <header className="absolute left-0 top-0 z-20 flex w-full items-center">
@@ -267,5 +325,4 @@ const ListItem = ({ children, NavLink }) => {
     </li>
   );
 };
-
 export default Navbar;
