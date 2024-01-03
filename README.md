@@ -135,20 +135,20 @@ $ npm start
 
 ## Authors
 
-👤 Cameron White
+👤 Roopa Patel
 
-- GitHub: [CamDubz](https://github.com/CamDubz)
-- LinkedIn: [@Cameron-White](https://nz.linkedin.com/in/cameron-white-99b1511bb)
+- GitHub: [roopap12](https://github.com/roopap12)
+- LinkedIn: [@Roopa-Patel](https://nz.linkedin.com/in/xxxxxxxx)
 
 
 👤 Andrew Spence
 
 - GitHub: [AndrewRobertSpence](https://github.com/AndrewRobertSpence)
 
-👤 Roopa Patel
+👤 Cameron White
 
-- GitHub: [roopap12](https://github.com/roopap12)
-- LinkedIn: [@Roopa-Patel](https://nz.linkedin.com/in/xxxxxxxx)
+- GitHub: [CamDubz](https://github.com/CamDubz)
+- LinkedIn: [@Cameron-White](https://nz.linkedin.com/in/cameron-white-99b1511bb)
 
 ## Show your support
 
