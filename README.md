@@ -135,17 +135,17 @@ $ npm start
 
 ## Authors
 
-👤 Roopa Patel
+👤 Roopa Patel- Backend Developer
 
 - GitHub: [roopap12](https://github.com/roopap12)
 - LinkedIn: [@Roopa-Patel](https://nz.linkedin.com/in/xxxxxxxx)
 
 
-👤 Andrew Spence
+👤 Andrew Spence - Frontend Developer
 
 - GitHub: [AndrewRobertSpence](https://github.com/AndrewRobertSpence)
 
-👤 Cameron White
+👤 Cameron White - Frontend Developer
 
 - GitHub: [CamDubz](https://github.com/CamDubz)
 - LinkedIn: [@Cameron-White](https://nz.linkedin.com/in/cameron-white-99b1511bb)
